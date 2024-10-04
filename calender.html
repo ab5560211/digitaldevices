@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple interactive calendar.">
+    <title>Interactive Calendar</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6739097649039960"
+    crossorigin="anonymous"></script>
+    <style>
+
+    </style>
+</head>
+<nav>
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bmi.html">BMI Calculator</a></li>
+        <li><a href="loan.html">Loan Calculator</a></li>
+        <li><a href="currency.html">Currency Converter</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="calender.html">Calender</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+<main>
+    <section>
+    <h1>Interactive Calendar</h1>
+    <div class="nav-buttons">
+        <button onclick="prevMonth()">Previous</button>
+        <span id="monthYear"></span>
+        <button onclick="nextMonth()">Next</button>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+        <tbody id="calendarBody"></tbody>
+    </table>
+</section>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6739097649039960"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-6739097649039960"
+     data-ad-slot="2172907853"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</main>
+    <script>
+        let currentDate = new Date();
+
+        function renderCalendar() {
+            const monthYear = document.getElementById('monthYear');
+            const calendarBody = document.getElementById('calendarBody');
+            calendarBody.innerHTML = '';
+
+            const month = currentDate.getMonth();
+            const year = currentDate.getFullYear();
+            monthYear.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+
+            let dayCount = 1;
+            for (let row = 0; row < 6; row++) {
+                let tr = document.createElement('tr');
+                for (let col = 0; col < 7; col++) {
+                    let td = document.createElement('td');
+                    if (row === 0 && col < firstDay) {
+                        td.textContent = '';
+                    } else if (dayCount > lastDate) {
+                        td.textContent = '';
+                    } else {
+                        td.textContent = dayCount;
+                        if (dayCount === currentDate.getDate() && month === new Date().getMonth() && year === new Date().getFullYear()) {
+                            td.classList.add('active');
+                        }
+                        dayCount++;
+                    }
+                    tr.appendChild(td);
+                }
+                calendarBody.appendChild(tr);
+            }
+        }
+
+        function prevMonth() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        }
+
+        function nextMonth() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        }
+
+        renderCalendar();
+    </script>
+     <script src="script.js">
+    </script>
+</body>
+</html>

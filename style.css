@@ -1,0 +1,372 @@
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f5;
+    color: #333;
+}
+
+nav {
+    background-color: #007BFF;
+    padding:28px 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+nav.scrolled {
+    background-color: rgba(46, 47, 48, 0.8);
+    padding:20px 10px;
+}
+
+nav .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+
+nav .menu a {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: background 0.3s ease, transform 0.2s;
+}
+@media (max-width : 1000px) {
+    nav .menu a{
+        padding: 10px 8px;
+        font-size: 16px;
+    }
+}
+
+nav .menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transform: translateY(-2px);
+}
+main{
+    display: flex;
+}
+.section {
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 40px; 
+}
+
+h2 {
+    color: #007BFF;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px; /* Increased heading size */
+    position: relative; /* Position for underline effect */
+}
+
+h2::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 50px; /* Width of underline */
+    background: #007BFF;
+    margin: 10px auto; /* Center the underline */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 30px 20px ;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+width: 100%;
+    animation: starr 0.5s 1  linear forwards;
+    transform: translateY(100%); /* Lift effect on hover */
+}
+
+@keyframes starr {
+    to{
+    transform: translateY(0%); /* Lift effect on hover */
+    }
+}
+
+label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    /* max-width: 300px; */
+    font-size:17px ;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #007BFF;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Result Paragraph Styling */
+p {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+}
+
+#calcContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+#screen{
+    width: 100%;
+}
+#screen input {
+    width: 100%;
+    /* max-width: 300px; */
+    padding: 10px;
+    margin-bottom: 8px;
+    font-size: 20px;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    text-align: right;
+    background-color: #f9f9f9;
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    gap: 10px;
+}
+
+#history {
+    margin-top: 20px;
+    background-color: #f0f0f5;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 300px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+#history p {
+    font-size: 16px;
+    color: #333;
+}
+
+#calendarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+#calendarHeader button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+#calendarHeader button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    transition: background 0.3s ease;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+td:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Highlight on hover */
+}
+
+td.active {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+
+th {
+    background-color: #f0f0f5;
+    color: #333;
+}
+
+/* Currency Converter Styling */
+#currencyConverter {
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #007BFF;
+}
+
+#currencyResult {
+    font-size: 20px;
+    color: #007BFF;
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav{
+        position: relative;
+    }
+    nav .menu {
+        flex-direction: column; /* Stack menu items vertically */
+        align-items: center; /* Center align items */
+    }
+nav .menu li{
+    margin: 10px;
+}
+    nav .menu a {
+        width: 100%; /* Full width for mobile */
+        text-align: center; /* Center text */
+    }
+    
+    h2 {
+        font-size: 20px; /* Adjust heading size */
+    }
+
+    form {
+        width: 98%; 
+    }
+
+    button {
+        width: 100%; /* Full width for buttons */
+    }
+
+    #calendarHeader {
+        flex-direction: column; /* Stack calendar header elements */
+        align-items: stretch; /* Stretch buttons */
+        margin-bottom: 15px;
+    }
+
+    #calendarHeader button {
+        width: 100%; /* Full width for calendar buttons */
+        margin-bottom: 5px; /* Spacing between buttons */
+    }
+    
+    table {
+        max-width: 100%; /* Responsive table width */
+    }
+
+    #currencyResult {
+        font-size: 18px; /* Smaller font size for currency result */
+    }
+    th, td {
+        width: 30px; /* Reduce cell width for smaller screens */
+        height: 30px; /* Reduce cell height for smaller screens */
+    }
+}
+
+@media (max-width: 520px) {
+    main{
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 18px;
+    }
+
+    button {
+        padding: 8px; /* Smaller button padding */
+        font-size: 16px; /* Smaller font size */
+    }
+
+    input {
+        font-size: 16px; /* Smaller input font size */
+    }
+
+    #screen input {
+        font-size: 18px; /* Smaller calculator screen font size */
+    }
+    th, td {
+        width: 25px; /* Further reduce for very small screens */
+        height: 25px; /* Further reduce for very small screens */
+        font-size: 12px; /* Smaller text for better fit */
+    }
+}
